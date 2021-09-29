@@ -11,10 +11,10 @@ const screenshot = require('screenshot-desktop');
 const prettyBytes = require('pretty-bytes');
 const date = require('date-and-time');
 
-
 let arrApps = [];
 let namesApps = [];
 var obj = {}
+
 
 
 var imgArr = [
@@ -68,6 +68,12 @@ function takeSC(title) {
 }
 
 
+function getURL() {
+    
+}
+
+
+
 /**
  @  Rendering the pages
  */
@@ -75,6 +81,7 @@ function takeSC(title) {
 router.get('/', (req, res) => {
     res.render('login');
     checkOS();
+    getURL();
 });
 
 

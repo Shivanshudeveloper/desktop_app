@@ -6,6 +6,27 @@
         <%= todayDate %>
     </h4>
 
+    <div class="modal fade" id="braveModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Website Visited</h5>
+            </div>
+            <div class="modal-body">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">Meet - jtj-bote-jpn - Brave</a>
+                    <a href="#" class="list-group-item list-group-item-action">Node.js & Passport Login App - Brave</a>
+                    <a href="#" class="list-group-item list-group-item-action">jQuery CDN - Brave</a>
+                    <a href="#" class="list-group-item list-group-item-action">Google Keep - Brave</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
     
 
     <div class="row row-cols-1 mt-5 row-cols-md-2">
@@ -42,6 +63,15 @@
                                 <img src="https://img.icons8.com/color/28/000000/mac-logo.png"/> Mac
                             <% } %>
                         </p>
+
+                        <% if(apps.owner == 'Brave-browser') { %>
+                            <button class="btn btn-outline-primary btn-block mt-2 mb-2" data-bs-toggle="modal" data-bs-target="#braveModal">
+                                Show Websites Visited
+                            </button>
+                        <% } %>
+                        
+
+                        
                     </div>
                 </div>
             </div>
