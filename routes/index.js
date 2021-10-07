@@ -32,9 +32,13 @@ var imgArr = [
         id: 3,
         name: "Code",
         image: "https://img.icons8.com/color/28/000000/visual-studio-code-2019.png"
+    },
+    {
+        id: 4,
+        name: "Firefox",
+        image: "https://img.icons8.com/color/28/000000/fox.png"
     }
 ]
-
 
 function checkOS() {
     // Printing os.type() value
@@ -59,19 +63,20 @@ function checkOS() {
 function takeSC(title) {
     var name = title + Date.now();
     screenshot({format: 'png'}).then((img) => {
-        require("fs").writeFile(`screenshots/${name}.png`, img, 'base64', function(err) {
+        require("fs").writeFile(`public/screenshots/${name}.png`, img, 'base64', function(err) {
             console.log(err);
         });
     }).catch((err) => {
         console.log(err);
     })
+
+    return name;
 }
 
 
 function getURL() {
     
 }
-
 
 
 /**
@@ -91,6 +96,7 @@ router.get('/home', async (req, res) => {
     let memory = '';
     let appImage = null;
     let icon = '';
+    let imgName = [];
     const now = new Date();
 
     try {
@@ -110,6 +116,8 @@ router.get('/home', async (req, res) => {
             namesApps.push(appsOpen.owner.name);
         }
 
+        
+
 
         arrApps.map((app) => {
             namesApps.map((app2) => {
@@ -122,7 +130,8 @@ router.get('/home', async (req, res) => {
                         owner: appsOpen.owner.name,
                         time: oldtime + 8,
                         memory,
-                        icon
+                        icon,
+                        imgName
                     }
                 } else {
                     obj = {
@@ -131,7 +140,8 @@ router.get('/home', async (req, res) => {
                         owner: appsOpen.owner.name,
                         time: 0,
                         memory,
-                        icon
+                        icon,
+                        imgName
                     }
                 }
             })
@@ -144,9 +154,19 @@ router.get('/home', async (req, res) => {
                 owner: appsOpen.owner.name,
                 time: 0,
                 memory,
-                icon
+                icon,
+                imgName
             }
         }
+
+        
+
+        if (obj.time === 16 || obj.time === 32) {
+            (obj.imgName).push(takeSC(appsOpen.title) + '.png');
+        }
+
+
+        
 
         if (arrApps.length === 0) {
             arrApps.push(obj);
@@ -159,7 +179,7 @@ router.get('/home', async (req, res) => {
         }
 
 
-        takeSC(appsOpen.title);
+
         res.render('home', {
             arrApps,
             todayDate: date.format(now, 'ddd, MMM DD YYYY')

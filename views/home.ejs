@@ -69,7 +69,16 @@
                                 Show Websites Visited
                             </button>
                         <% } %>
-                        
+
+                        <hr />
+
+                        <% if(apps.imgName) { %>
+                            <% (apps.imgName).forEach((img) => { %>
+                                <a class="btn btn-sm btn-outline-primary rounded" target="_blank" href="http://localhost:3001/screenshots/<%= img %>" >
+                                    Image
+                                </a>
+                            <% }); %>
+                        <% } %>
 
                         
                     </div>
