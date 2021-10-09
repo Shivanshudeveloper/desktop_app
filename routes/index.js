@@ -11,6 +11,22 @@ const screenshot = require('screenshot-desktop');
 const prettyBytes = require('pretty-bytes');
 const date = require('date-and-time');
 
+
+var admin = require("firebase-admin");
+var serviceAccount = require("./evencloud-26d32-firebase-adminsdk-k1gm0-0ea627d59e.json");
+// Initialize the app with a service account, granting admin privileges
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://evencloud-26d32.firebaseio.com"
+});
+
+var db = admin.database();
+const ref = db.ref(`tracker/testuser1234`);
+
+
+
+
+
 let arrApps = [];
 let namesApps = [];
 var obj = {}
@@ -165,6 +181,10 @@ router.get('/home', async (req, res) => {
             (obj.imgName).push(takeSC(appsOpen.title) + '.png');
         }
 
+        ref.set({
+            username: 'Test User',
+            work: obj
+        })
 
         
 

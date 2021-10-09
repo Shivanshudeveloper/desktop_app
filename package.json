@@ -21,6 +21,8 @@
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.2",
+    "firebase": "^9.1.2",
+    "firebase-admin": "^9.12.0",
     "location-bar": "^3.0.1",
     "mac-screen-capture-permissions": "^2.0.0",
     "mongoose": "^6.0.7",
