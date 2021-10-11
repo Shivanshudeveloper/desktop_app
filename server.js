@@ -50,7 +50,7 @@ app.use('/', require('./routes/index'));
 
 
 // Getting PORT set
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 // Starting the server
 app.listen(PORT, console.log('Server Started On Port', PORT));
