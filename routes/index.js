@@ -10,8 +10,7 @@ const {
 const screenshot = require('screenshot-desktop');
 const prettyBytes = require('pretty-bytes');
 const date = require('date-and-time');
-
-
+const fs = require('fs');
 var admin = require("firebase-admin");
 var serviceAccount = require("./evencloud-26d32-firebase-adminsdk-k1gm0-0ea627d59e.json");
 // Initialize the app with a service account, granting admin privileges
@@ -55,6 +54,8 @@ var imgArr = [
         image: "https://img.icons8.com/color/28/000000/fox.png"
     }
 ]
+
+
 
 function checkOS() {
     // Printing os.type() value
@@ -181,12 +182,29 @@ router.get('/home', async (req, res) => {
             (obj.imgName).push(takeSC(appsOpen.title) + '.png');
         }
 
-        ref.set({
-            username: 'Test User',
-            work: obj
-        })
+        require('dns').resolve('www.google.com', function(err) {
+            if (err) {
+                var newObj = {
+                    username: 'Test User',
+                    work: obj
+                }
+                // var jsonObj = JSON.parse(newObj);
+                var jsonContent = JSON.stringify(newObj);
+                fs.writeFile("offlineoutput.json", jsonContent, 'utf8', function (err) {
+                    if (err) {
+                        console.log("An error occured while writing JSON Object to File.");
+                        return console.log(err);
+                    }
+                    console.log("JSON file has been saved.");
+                });
+            } else {
+                ref.set({
+                    username: 'Test User',
+                    work: obj
+                })
+            }
+        });
 
-        
 
         if (arrApps.length === 0) {
             arrApps.push(obj);
@@ -197,7 +215,6 @@ router.get('/home', async (req, res) => {
             }
             arrApps.push(obj);
         }
-
 
 
         res.render('home', {
