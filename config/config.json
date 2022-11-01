@@ -1,0 +1,47 @@
+{
+  "development": {
+    "username": "tsdbadmin",
+    "password": "exrnshmaoj6eufzz",
+    "database": "tsdb",
+    "host": "f7lgrscmtu.n81amyf485.tsdb.cloud.timescale.com",
+    "port": "33464",
+    "dialect": "postgres",
+    "protocol": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
+  },
+  "test": {
+    "username": "tsdbadmin",
+    "password": "exrnshmaoj6eufzz",
+    "database": "tsdb",
+    "host": "f7lgrscmtu.n81amyf485.tsdb.cloud.timescale.com",
+    "port": "33464",
+    "dialect": "postgres",
+    "protocol": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
+  },
+  "production": {
+    "username": "tsdbadmin",
+    "password": "exrnshmaoj6eufzz",
+    "database": "tsdb",
+    "host": "f7lgrscmtu.n81amyf485.tsdb.cloud.timescale.com",
+    "port": "33464",
+    "dialect": "postgres",
+    "protocol": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
+  }
+}

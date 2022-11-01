@@ -1,0 +1,96 @@
+<div class="container mt-5 mb-5">
+    <div style="float: right;">
+        <span><img src="https://img.icons8.com/color/48/000000/circled-user-male-skin-type-3--v1.png"/></span>
+        <%= name %>
+    </div>
+    <h4>
+        <%= todayDate %>
+    </h4>
+
+    <div class="modal fade" id="braveModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Website Visited</h5>
+            </div>
+            <div class="modal-body">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">Meet - jtj-bote-jpn - Brave</a>
+                    <a href="#" class="list-group-item list-group-item-action">Node.js & Passport Login App - Brave</a>
+                    <a href="#" class="list-group-item list-group-item-action">jQuery CDN - Brave</a>
+                    <a href="#" class="list-group-item list-group-item-action">Google Keep - Brave</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    
+
+    <div class="row row-cols-1 mt-5 row-cols-md-2">
+        <% arrApps.forEach((apps) => { %>
+            <div class="col mb-4">
+                <div class="card shadow rounded">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item h5">
+                            <p style="float: right;" class="mt-2">
+                                <%= apps.time %> Seconds
+                            </p>
+                            <img class="mt-2" src=<%= apps.icon %>/> <span class="mt-5"><%= apps.owner %></span>
+                        </li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="#!" class="h5"><%= apps.apptitle %></a>
+                        
+                        <p class="card-text mt-1">
+                            
+                            
+                            <%= apps.memory %> Memory Used
+                            
+                            <br />
+            
+                            <% if(apps.platform == 'Linux') { %>
+                                <img class="float-end" src="https://img.icons8.com/color/28/000000/linux--v1.png"/> Linux
+                            <% } %>
+            
+                            <% if(apps.platform == 'Windows_NT') { %>
+                                <img src="https://img.icons8.com/color/28/000000/windows-11.png"/> Windows
+                            <% } %>
+            
+                            <% if(apps.platform == 'Darwin') { %>
+                                <img src="https://img.icons8.com/color/28/000000/mac-logo.png"/> Mac
+                            <% } %>
+                        </p>
+
+                        <% if(apps.owner == 'Brave-browser') { %>
+                            <button class="btn btn-outline-primary btn-block mt-2 mb-2" data-bs-toggle="modal" data-bs-target="#braveModal">
+                                Show Websites Visited
+                            </button>
+                        <% } %>
+
+                        <hr />
+
+                        <% if(apps.imgName) { %>
+                            <% (apps.imgName).forEach((img) => { %>
+                                <a class="btn btn-sm btn-outline-primary rounded" target="_blank" href="http://localhost:3001/screenshots/<%= img %>" >
+                                    Image
+                                </a>
+                            <% }); %>
+                        <% } %>
+
+                        
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+
+<script>
+    setInterval(() => {
+        location.reload();
+    }, 8000);
+</script>

@@ -1,0 +1,53 @@
+{
+  "name": "desktop_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "app": "electron main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@firebase/app": "^0.7.17",
+    "@google-cloud/storage": "^5.18.2",
+    "active-win": "^7.6.1",
+    "active-win-with-url": "^1.1.2",
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "date-and-time": "^2.0.0",
+    "desktop-screenshot": "^0.1.1",
+    "dotenv": "^14.2.0",
+    "ejs": "^3.1.6",
+    "electron": "^20.2.0",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.2",
+    "find-process": "^1.4.7",
+    "firebase-admin": "^10.0.2",
+    "fs": "^0.0.1-security",
+    "location-bar": "^3.0.1",
+    "mac-screen-capture-permissions": "^2.0.0",
+    "moment": "^2.29.4",
+    "mongoose": "^6.0.7",
+    "node-gyp": "^8.4.1",
+    "passport": "^0.4.1",
+    "passport-custom": "^1.1.1",
+    "passport-local": "^1.0.0",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "pretty-bytes": "^5.6.0",
+    "ref-struct-di": "^1.1.1",
+    "ref-wchar-napi": "^1.0.3",
+    "screenshot-desktop": "^1.12.7",
+    "sequelize": "^6.14.0",
+    "sequelize-cli": "^6.4.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

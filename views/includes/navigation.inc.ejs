@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- <a class="navbar-brand" href="#">AroundYou</a> -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link ml-5" href="/dashboard">
+            <i class="fas text-primary fa-home"></i>
+            Home 
+          </a>
+        </li>
+        
+        <% if (usertype != 'faculty') { %>
+          <li class="nav-item active">
+            <a class="nav-link" href="/playground">
+              <i class="fas text-warning fa-code"></i>
+              Code Playground
+            </a>
+          </li>
+        <% } %>
+
+        <% if (usertype != 'faculty') { %>
+          <li class="nav-item active">
+            <a class="nav-link" href="/assignments">
+              <i class="fas text-info fa-pen"></i>
+                Assignments & Keys
+            </a>
+          </li>
+        <% } %>
+
+        <% if (usertype == 'faculty') { %>
+          <li class="nav-item active">
+            <a class="nav-link" href="/uploads">
+              <i class="fas text-info fa-cloud-upload-alt"></i>
+              Uploads
+            </a>
+          </li>
+        <% } %>
+        
+        
+        <li class="nav-item active">
+          <a class="nav-link" href="/notes">
+            <i class="fas text-success fa-cloud"></i>
+            Notes
+          </a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="/events">
+            <i class="fas fa-theater-masks"></i>
+            Events
+          </a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="/studylogs">
+            <i class="fas text-primary fa-scroll"></i>
+            Study Logs 
+          </a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="/areas">
+            <i class="fas text-secondary fa-store-alt"></i>
+            PG/Food
+          </a>
+        </li>
+
+      </ul>
+
+      <a class="btn btn-sm btn-light mr-2" href="#!">
+        <div class="text-primary">
+          <i class="fas fa-bell"></i>
+          Notifications
+          <span class="badge badge-light">10</span>
+        </div>
+      </a>
+
+      <a class="btn btn-sm btn-outline-danger" href="/users/logout">
+        <i class="fas fa-sign-out-alt"></i>
+        Logout
+      </a>
+      
+    </div>
+  </nav>
